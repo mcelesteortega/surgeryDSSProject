@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p3_dss.Symptoms_1Controller">
+   <children>
+      <Pane opacity="0.41" prefHeight="400.0" prefWidth="606.0" style="-fx-background-color: b0e0e6 b0e0e6;">
+         <children>
+            <Pane layoutX="55.0" layoutY="101.0" prefHeight="274.0" prefWidth="427.0" style="-fx-background-color: white;" />
+            <AnchorPane layoutX="84.0" layoutY="114.0" prefHeight="262.0" prefWidth="427.0">
+               <children>
+                  <GridPane prefHeight="262.0" prefWidth="394.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="209.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="76.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Has difficulty in swallow?" />
+                        <Label text="Has acidity?" GridPane.rowIndex="1" />
+                        <Label text="Has lost weight recently?" GridPane.rowIndex="2" />
+                        <Label text="Has cough?" GridPane.rowIndex="3" />
+                        <Label text="Has lost the voice?" GridPane.rowIndex="4" />
+                        <Label text="Has any respiratory problems?" GridPane.rowIndex="5" />
+                        <Label text="Has vomits?" GridPane.rowIndex="6" />
+                        <Label text="Has dark stools?" GridPane.rowIndex="7" />
+                        <Label text="Has torax pain?" GridPane.rowIndex="8" />
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="difficulty_swallow" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="difficulty_swallow_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$difficulty_swallow" GridPane.columnIndex="2" />
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="acidity" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="loss_weight" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="cough" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="loss_voice" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="respiratory_problems" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="vomits" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="dark_stools" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="torax_pain" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="acidity_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$acidity" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="loss_weight_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$loss_weight" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="cough_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$cough" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <RadioButton fx:id="lost_voice_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$loss_voice" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <RadioButton fx:id="respiratory_problems_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$respiratory_problems" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <RadioButton fx:id="vomits_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$vomits" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <RadioButton fx:id="dark_stools_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$dark_stools" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <RadioButton fx:id="torax_pain_no" mnemonicParsing="false" selected="true" text="NO" toggleGroup="$torax_pain" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <Label layoutX="499.0" layoutY="105.0" prefHeight="17.0" prefWidth="84.0" text="Second page" />
+            <Button fx:id="EndButtond" layoutX="514.0" layoutY="348.0" mnemonicParsing="false" onAction="#EndButton" text="End">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <Pane prefHeight="95.0" prefWidth="606.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="76.0" fitWidth="99.0" layoutX="501.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="37.0" prefHeight="29.0" prefWidth="499.0" text="WHAT SYMPTOMS DOES THE PATIENT HAVE?">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
