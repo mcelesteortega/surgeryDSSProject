@@ -109,6 +109,7 @@
                </children>
             </Pane>
             <Button fx:id="EndButtond" layoutX="531.0" layoutY="357.0" mnemonicParsing="false" onAction="#EndButton" text="End" />
+            <Label alignment="CENTER" layoutX="499.0" layoutY="125.0" prefHeight="17.0" prefWidth="84.0" text="Second List" />
          </children>
       </Pane>
       <Pane prefHeight="107.0" prefWidth="606.0" style="-fx-background-color: white;">
@@ -131,7 +132,6 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label alignment="CENTER" layoutX="501.0" layoutY="85.0" prefHeight="17.0" prefWidth="84.0" text="Second List" />
          </children>
       </Pane>
    </children>

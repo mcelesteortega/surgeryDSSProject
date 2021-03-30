@@ -123,6 +123,7 @@
             </AnchorPane>
             
             <Button fx:id="nextSymptoms" layoutX="523.0" layoutY="361.0" mnemonicParsing="false" onAction="#NextSymptoms" text="Next" />
+            <Label alignment="CENTER" layoutX="491.0" layoutY="121.0" prefHeight="17.0" prefWidth="84.0" text="Fisrt List" textAlignment="CENTER" />
          </children></Pane>
       <Pane prefHeight="106.0" prefWidth="606.0" style="-fx-background-color: white;">
          <children>
@@ -144,7 +145,6 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label alignment="CENTER" layoutX="501.0" layoutY="84.0" prefHeight="17.0" prefWidth="84.0" text="Fisrt List" textAlignment="CENTER" />
          </children>
       </Pane>
    </children>
