@@ -69,8 +69,8 @@
             </GridPane>
             <Pane layoutX="112.0" layoutY="256.0" prefHeight="27.0" prefWidth="325.0" style="-fx-background-color: sandybrown;">
                <children>
-                  <Label layoutX="9.0" layoutY="5.0" prefHeight="17.0" prefWidth="134.0" text="THE BEST OPTION IS:" />
-                  <Label fx:id="FinalDecision" layoutX="136.0" layoutY="6.0" prefHeight="17.0" prefWidth="143.0" />
+                  <Label layoutX="9.0" layoutY="5.0" prefHeight="17.0" prefWidth="143.0" text="A COMPATIBLE OPTION:" />
+                  <Label fx:id="FinalDecision" layoutX="152.0" layoutY="5.0" prefHeight="17.0" prefWidth="143.0" />
                </children>
             </Pane>
             <Button layoutX="453.0" layoutY="156.0" mnemonicParsing="false" onAction="#InfoButton" prefHeight="33.0" prefWidth="108.0" style="-fx-background-color: white;" text="Information" textFill="#b91313">
