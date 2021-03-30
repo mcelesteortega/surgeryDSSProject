@@ -20,7 +20,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label fx:id="proposed" layoutX="257.0" layoutY="17.0" prefHeight="22.0" prefWidth="242.0" textFill="#ababab">
+            <Label fx:id="proposed" layoutX="275.0" layoutY="17.0" prefHeight="22.0" prefWidth="242.0" textFill="#ababab">
                <font>
                   <Font size="19.0" />
                </font>

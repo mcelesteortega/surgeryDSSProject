@@ -13,10 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author alejandra
- */
+
 public class P3_dss extends Application {
     
     @Override

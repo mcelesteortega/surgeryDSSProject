@@ -28,10 +28,7 @@ import net.sf.clipsrules.jni.CLIPSException;
 import net.sf.clipsrules.jni.Environment;
 import net.sf.clipsrules.jni.FactAddressValue;
 
-/**
- *
- * @author alejandra
- */
+
 public class SurgeryDiagnosisController implements Initializable {
 
     private List<Patient> operation;

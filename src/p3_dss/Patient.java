@@ -5,13 +5,7 @@
  */
 package p3_dss;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.RadioButton;
 
-/**
- *
- * @author AdriCortellucci
- */
 public class Patient {
 
     private String name_id;

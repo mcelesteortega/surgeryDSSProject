@@ -20,10 +20,7 @@ import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 import net.sf.clipsrules.jni.Environment;
 
-/**
- *
- * @author alejandra
- */
+
 public class SymptomsController implements Initializable {
 
     @FXML

@@ -25,10 +25,7 @@ import javafx.stage.Stage;
 import net.sf.clipsrules.jni.Environment;
 import net.sf.clipsrules.jni.FactAddressValue;
 
-/**
- *
- * @author alejandra
- */
+
 public class StartViewController implements Initializable {
 
     private Environment clips;

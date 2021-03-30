@@ -25,10 +25,6 @@ import javafx.stage.Stage;
 import net.sf.clipsrules.jni.Environment;
 import net.sf.clipsrules.jni.FactAddressValue;
 
-/**
- *
- * @author alejandra
- */
 public class NewPatientController implements Initializable {
 
     
