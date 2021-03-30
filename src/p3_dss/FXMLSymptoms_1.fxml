@@ -15,9 +15,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p3_dss.Symptoms_1Controller">
    <children>
-      <Pane opacity="0.41" prefHeight="400.0" prefWidth="606.0" style="-fx-background-color: b0e0e6 b0e0e6;">
+      <Pane prefHeight="400.0" prefWidth="606.0" style="-fx-background-color: c9e9fc;">
          <children>
-            <Pane layoutX="55.0" layoutY="101.0" prefHeight="274.0" prefWidth="427.0" style="-fx-background-color: white;" />
+            <Pane layoutX="57.0" layoutY="109.0" prefHeight="274.0" prefWidth="394.0" style="-fx-background-color: white;" />
             <AnchorPane layoutX="84.0" layoutY="114.0" prefHeight="262.0" prefWidth="427.0">
                <children>
                   <GridPane prefHeight="262.0" prefWidth="394.0">

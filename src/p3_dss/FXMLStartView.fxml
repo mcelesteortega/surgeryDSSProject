@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p3_dss.StartViewController">
     <children>
-      <Pane opacity="0.41" prefHeight="495.0" prefWidth="647.0" style="-fx-background-color: b0e0e6 b0e0e6;" />
+      <Pane prefHeight="495.0" prefWidth="647.0" style="-fx-background-color: c9e9fc;" />
       <Pane prefHeight="131.0" prefWidth="647.0" style="-fx-background-color: white;" />
         <Button fx:id="SaveButton" layoutX="308.0" layoutY="380.0" onAction="#SaveButton" style="-fx-background-color: white;" text="SAVE">
          <font>

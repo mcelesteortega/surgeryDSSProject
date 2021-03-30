@@ -36,7 +36,7 @@ public class SurgeryDiagnosisController implements Initializable {
     private List<Patient> operation;
     //usaremos este label para luego mostrar la solucion final
     @FXML
-    private Label Label;
+    private Label proposed;
 
     @FXML
     private Label recommendation;
@@ -81,7 +81,7 @@ public class SurgeryDiagnosisController implements Initializable {
     private void showPercentages() throws Exception {
 
         FactAddressValue fact_patient = clips.findFact("?p", "patient", "(eq ?p:name " + p.getName_id() + ")");
-
+        
         String correct_op = fact_patient.getSlotValue("correct-operation").toString();
         float score_pancreatitis = Float.parseFloat(fact_patient.getSlotValue("total_per_pancreatitis").toString()) / Float.parseFloat(fact_patient.getSlotValue("max_per_pancreatitis").toString()) * 100;
         float score_splenectomy = Float.parseFloat(fact_patient.getSlotValue("total_per_splenectomy").toString()) / Float.parseFloat(fact_patient.getSlotValue("max_per_splenectomy").toString()) * 100;
@@ -89,8 +89,11 @@ public class SurgeryDiagnosisController implements Initializable {
         float score_hernia = Float.parseFloat(fact_patient.getSlotValue("total_per_hernia").toString()) / Float.parseFloat(fact_patient.getSlotValue("max_per_hernia").toString()) * 100;
         float score_achalasia = Float.parseFloat(fact_patient.getSlotValue("total_per_achalasia").toString()) / Float.parseFloat(fact_patient.getSlotValue("max_per_achalasia").toString()) * 100;
 
+        proposed.setText(p.getProposed_operation());
+        
         if (correct_op.equals("nil")) {
             recommendation.setText("NOT recommended because its probability is:");
+            
             if (p.getProposed_operation().equals("pancreatitis")) {
                 message.setText(String.valueOf(score_pancreatitis));
             }
@@ -147,7 +150,7 @@ public class SurgeryDiagnosisController implements Initializable {
         Parent startView = loader.load();
         Scene newPatient = new Scene(startView);
 
-        SurgeryController controller = loader.getController();
+        NewPatientController controller = loader.getController();
         controller.initData(p, clips);
 
         Stage window = new Stage();
