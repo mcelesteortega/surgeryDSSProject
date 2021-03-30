@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 import java.net.URL;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +36,9 @@ public class SurgeryDiagnosisController implements Initializable {
 
     private List<Patient> operation;
     //usaremos este label para luego mostrar la solucion final
+    
+    @FXML
+    private Label PatientName;
     @FXML
     private Label proposed;
 
@@ -61,10 +65,15 @@ public class SurgeryDiagnosisController implements Initializable {
 
     @FXML
     private Label message;
+    
+    @FXML
+    private Label FinalDecision;
 
     private Environment clips;
 
     private Patient p;
+    
+    
 
     public void initData(Patient p, Environment clips) throws Exception {
         this.p = p;
@@ -79,6 +88,9 @@ public class SurgeryDiagnosisController implements Initializable {
     }
 
     private void showPercentages() throws Exception {
+        
+        proposed.setText(p.getProposed_operation());
+        PatientName.setText(p.getName_id());
 
         FactAddressValue fact_patient = clips.findFact("?p", "patient", "(eq ?p:name " + p.getName_id() + ")");
         
@@ -89,7 +101,60 @@ public class SurgeryDiagnosisController implements Initializable {
         float score_hernia = Float.parseFloat(fact_patient.getSlotValue("total_per_hernia").toString()) / Float.parseFloat(fact_patient.getSlotValue("max_per_hernia").toString()) * 100;
         float score_achalasia = Float.parseFloat(fact_patient.getSlotValue("total_per_achalasia").toString()) / Float.parseFloat(fact_patient.getSlotValue("max_per_achalasia").toString()) * 100;
 
-        proposed.setText(p.getProposed_operation());
+       
+      
+        //BUSCAMOS CUAL ES EL SCORE MAXIMO Y MINIMO
+        List<Float> t = new ArrayList<Float>();
+        t.add(score_pancreatitis);
+        t.add(score_splenectomy);
+        t.add(score_barret);
+        t.add(score_hernia);
+        t.add(score_achalasia);
+        
+   
+        double max = 0;
+         for (int i = 0; i < t.size(); i++) {
+            if (t.get(i) > max) {
+                max = t.get(i);
+            }
+        }
+        double min = max;
+        for (int i = 0; i < t.size(); i++) {
+            if (t.get(i) < min) {
+                min = t.get(i);
+            }
+        }
+        System.out.println("Máximo: " + max);
+        if(max==score_pancreatitis){
+            FinalDecision.setText("Pancreatitis");
+            p.setCorrected_surgery("Pancreatitis");
+            
+        }
+        if(max==score_splenectomy){
+            FinalDecision.setText("Splenectomy");
+            p.setCorrected_surgery("Splenectomy");
+        }
+        if(max==score_barret){
+            FinalDecision.setText("Barret");
+            p.setCorrected_surgery("Barret");
+        }
+        if(max==score_hernia){
+            FinalDecision.setText("Hernia");
+            p.setCorrected_surgery("Hernia");
+        }
+        if(max==score_achalasia){
+            FinalDecision.setText("Achalasia");
+            p.setCorrected_surgery("Achalasia");
+        }if(max==0.0){
+            FinalDecision.setText("Not enough information");
+            p.setCorrected_surgery(p.getProposed_operation());
+            
+           
+        }
+      
+        
+        ///////////////
+        
         
         if (correct_op.equals("nil")) {
             recommendation.setText("NOT recommended because its probability is:");
@@ -97,18 +162,23 @@ public class SurgeryDiagnosisController implements Initializable {
             if (p.getProposed_operation().equals("pancreatitis")) {
                 message.setText(String.valueOf(score_pancreatitis));
             }
-            if (correct_op.equals("splenectomy")) {
+            
+            if (p.getProposed_operation().equals("splenectomy")) {
                 message.setText(String.valueOf(score_splenectomy));
             }
-            if (correct_op.equals("Barret")) {
+             
+            if (p.getProposed_operation().equals("Barret")) {
                 message.setText(String.valueOf(score_barret));
             }
-            if (correct_op.equals("hernia")) {
+            if (p.getProposed_operation().equals("hernia")) {
                 message.setText(String.valueOf(score_hernia));
             }
-            if (correct_op.equals("achalasia")) {
+            
+            if (p.getProposed_operation().equals("achalasia")) {
                 message.setText(String.valueOf(score_achalasia));
             }
+            
+            
 
             pancreatitis_label.setText(String.valueOf(score_pancreatitis));
             splenectomy_label.setText(String.valueOf(score_splenectomy));
@@ -138,6 +208,10 @@ public class SurgeryDiagnosisController implements Initializable {
         }
 
     }
+    
+    
+    
+
 
     @FXML
     private void LastButton(ActionEvent event) throws Exception {
@@ -163,9 +237,73 @@ public class SurgeryDiagnosisController implements Initializable {
         myStage.close();
 
     }
+    
+    //visualize the risks of the surgery selected
+    @FXML
+    private void ViewRisks(ActionEvent event) throws Exception {
+
+        //load the new window
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("FXMLRisks.fxml"));
+
+        Parent startView = loader.load();
+        Scene risks = new Scene(startView);
+
+        RisksController controller = loader.getController();
+        controller.initData(p, clips);
+
+        Stage window = new Stage();
+        window.setScene(risks);
+
+        window.show();
+
+        // Cierro la ventana donde estoy
+        Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        myStage.close();
+
+    }
+    
+    @FXML
+    private void InfoButton(ActionEvent event) throws Exception {
+
+        //load the new window
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("FXMLInfo.fxml"));
+
+        Parent startView = loader.load();
+        Scene Info = new Scene(startView);
+
+        InfoController controller = loader.getController();
+        controller.initData(p, clips);
+
+        Stage window = new Stage();
+        window.setScene(Info);
+
+        window.show();
+
+        // Cierro la ventana donde estoy
+        Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        myStage.close();
+
+    }
+    
+     
+     @FXML
+    private void EndButton(ActionEvent event) throws Exception {
+
+     
+        // Close the current window
+        Stage myStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        myStage.close();
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
 
     }
 

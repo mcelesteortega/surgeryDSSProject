@@ -36,6 +36,7 @@ public class Patient {
     private String dark_stools;
     private String torax_pain;
     private String proposed_operation;
+    private String corrected_surgery;
 
     public Patient(String name_id){
     
@@ -66,9 +67,19 @@ public class Patient {
     public String getProposed_operation() {
         return proposed_operation;
     }
+    
+    public String getCorrected_surgery() {
+        return corrected_surgery;
+    }
+    
+
 
     public void setProposed_operation(String proposed_operation) {
         this.proposed_operation = proposed_operation;
+    }
+    
+     public void setCorrected_surgery(String corrected_surgery) {
+        this.corrected_surgery = corrected_surgery;
     }
     
 

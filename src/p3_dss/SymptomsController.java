@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 import net.sf.clipsrules.jni.Environment;
@@ -48,6 +49,7 @@ public class SymptomsController implements Initializable {
     @FXML
     RadioButton reflux_no;
     @FXML
+    private Label PatientName;
     
 
     private Environment clips;
@@ -56,6 +58,7 @@ public class SymptomsController implements Initializable {
     public void initData(Patient p, Environment clips) {
         this.p = p;
         this.clips = clips;
+        PatientName.setText(p.getName_id());
 
     }
 

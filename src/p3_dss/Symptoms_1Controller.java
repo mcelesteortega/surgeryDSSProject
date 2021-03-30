@@ -54,10 +54,14 @@ public class Symptoms_1Controller implements Initializable {
 
     @FXML
     private RadioButton torax_pain_no;
+    
+    @FXML
+    private Label PatientName;
 
     public void initData(Patient p, Environment clips) {
         this.p = p;
         this.clips = clips;
+        PatientName.setText(p.getName_id());
 
     }
 

@@ -31,7 +31,9 @@ public class SurgeryController implements Initializable {
 
     @FXML
     private ComboBox surgeryBox;
-
+    @FXML
+    private Label PatientName;
+    
     @FXML
     private Label Label;
     private Environment clips;
@@ -40,15 +42,22 @@ public class SurgeryController implements Initializable {
     public void initData(Patient p, Environment clips) {
         this.p = p;
         this.clips = clips;
+        PatientName.setText(p.getName_id());
 
     }
+    
+    
 
     @FXML
     private void NextButton(ActionEvent event) throws Exception {
+        
+        
 
         if (surgeryBox.getValue().equals("")) {
+            Label.setText("Select a surgery, please!");
 
         } else {
+            
             getSurgery();
             System.out.println(p.toString());
             
@@ -81,6 +90,10 @@ public class SurgeryController implements Initializable {
     }
 
     public void getSurgery() {
+        
+        
+        
+        
         switch (surgeryBox.getValue().toString()) {
             case "Pancreatitis":
                 p.setProposed_operation("pancreatitis");
@@ -112,6 +125,8 @@ public class SurgeryController implements Initializable {
         surgeryBox.getItems().add("Hiatal hernia");
         surgeryBox.getItems().add("Achalasia");
         surgeryBox.setValue("");
+        
+        
     }
 
 }
