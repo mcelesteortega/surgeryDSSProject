@@ -132,7 +132,7 @@ public class SurgeryDiagnosisController implements Initializable {
             p.setCorrected_surgery("Splenectomy");
         }
         if(max==score_barret){
-            FinalDecision.setText("Barret esophagus");
+            FinalDecision.setText("Barret syndrome");
             p.setCorrected_surgery("Barret");
         }
         if(max==score_hernia){
