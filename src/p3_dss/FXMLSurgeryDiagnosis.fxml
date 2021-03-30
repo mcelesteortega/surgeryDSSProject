@@ -11,38 +11,38 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p3_dss.SurgeryDiagnosisController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p3_dss.SurgeryDiagnosisController">
    <children>
       <Pane layoutY="94.0" prefHeight="306.0" prefWidth="600.0" style="-fx-background-color: c9e9fc;">
          <children>
-            <Label layoutX="36.0" layoutY="17.0" text="The proposed  surgery was:  ">
+            <Label layoutX="25.0" layoutY="30.0" text="The proposed surgery was:  ">
                <font>
-                  <Font size="19.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="proposed" layoutX="275.0" layoutY="17.0" prefHeight="22.0" prefWidth="242.0" textFill="#ababab">
+            <Label fx:id="proposed" layoutX="236.0" layoutY="30.0" prefHeight="22.0" prefWidth="242.0" textFill="#ababab">
                <font>
-                  <Font size="19.0" />
+                  <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label fx:id="recommendation" contentDisplay="RIGHT" layoutX="36.0" layoutY="44.0" prefHeight="24.0" prefWidth="379.0" textAlignment="RIGHT" textFill="#ababab">
+            <Label fx:id="recommendation" contentDisplay="RIGHT" layoutX="25.0" layoutY="56.0" prefHeight="24.0" prefWidth="379.0" textAlignment="RIGHT" textFill="#ababab">
                <font>
-                  <Font size="19.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="message" contentDisplay="RIGHT" layoutX="414.0" layoutY="44.0" prefHeight="24.0" prefWidth="78.0" textAlignment="RIGHT" textFill="#ababab">
+            <Label fx:id="message" contentDisplay="RIGHT" layoutX="407.0" layoutY="56.0" prefHeight="24.0" prefWidth="78.0" textAlignment="RIGHT" textFill="#ababab">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
             <Button layoutX="499.0" layoutY="256.0" mnemonicParsing="false" onAction="#LastButton" text="New Patient" />
             <Button fx:id="End" layoutX="25.0" layoutY="256.0" mnemonicParsing="false" onAction="#EndButton" text="End" />
-            <Button layoutX="452.0" layoutY="90.0" mnemonicParsing="false" onAction="#ViewRisks" prefHeight="33.0" prefWidth="108.0" style="-fx-background-color: white;" text="View risks" textFill="#c30f0f">
+            <Button alignment="CENTER" layoutX="472.0" layoutY="113.0" mnemonicParsing="false" onAction="#ViewRisks" prefHeight="27.0" prefWidth="96.0" style="-fx-background-color: white;" text="View Risks" textFill="#c30f0f">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <GridPane fx:id="gridPane" layoutX="45.0" layoutY="105.0" prefHeight="132.0" prefWidth="252.0">
+            <GridPane fx:id="gridPane" layoutX="139.0" layoutY="105.0" prefHeight="132.0" prefWidth="252.0">
               <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="157.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="188.0" />
@@ -67,20 +67,20 @@
                   <Label fx:id="achalasia_label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
-            <Pane layoutX="112.0" layoutY="256.0" prefHeight="27.0" prefWidth="325.0" style="-fx-background-color: sandybrown;">
+            <Pane layoutX="121.0" layoutY="255.0" prefHeight="27.0" prefWidth="325.0" style="-fx-background-color: sandybrown;">
                <children>
                   <Label layoutX="9.0" layoutY="5.0" prefHeight="17.0" prefWidth="143.0" text="A COMPATIBLE OPTION:" />
-                  <Label fx:id="FinalDecision" layoutX="152.0" layoutY="5.0" prefHeight="17.0" prefWidth="143.0" />
+                  <Label fx:id="FinalDecision" layoutX="163.0" layoutY="5.0" prefHeight="17.0" prefWidth="143.0" />
                </children>
             </Pane>
-            <Button layoutX="453.0" layoutY="156.0" mnemonicParsing="false" onAction="#InfoButton" prefHeight="33.0" prefWidth="108.0" style="-fx-background-color: white;" text="Information" textFill="#b91313">
+            <Button alignment="CENTER" layoutX="472.0" layoutY="171.0" mnemonicParsing="false" onAction="#InfoButton" prefHeight="33.0" prefWidth="96.0" style="-fx-background-color: white;" text="Information" textFill="#c30f0f">
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane prefHeight="95.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <Pane prefHeight="107.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="88.0" fitWidth="93.0" layoutX="499.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -92,8 +92,14 @@
                   <Font name="System Bold" size="27.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="73.0" text="Patient:" />
-            <Label fx:id="PatientName" layoutX="63.0" layoutY="73.0" />
+            <Label layoutX="27.0" layoutY="80.0" prefHeight="20.0" prefWidth="53.0" text="Patient:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label fx:id="PatientName" layoutX="89.0" layoutY="80.0" prefHeight="17.0" prefWidth="78.0">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
          </children>
       </Pane>
    </children>
