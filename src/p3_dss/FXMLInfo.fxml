@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="p3_dss.InfoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p3_dss.InfoController">
    <children>
       <Pane prefHeight="94.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -41,6 +40,21 @@
             <ImageView fx:id="Image_splenectomy" fitHeight="234.0" fitWidth="558.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/info_splenectomy.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Image_achalasia" fitHeight="266.0" fitWidth="401.0" layoutX="110.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/info_achalasia.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Image_barret" fitHeight="212.0" fitWidth="542.0" layoutX="29.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/info_barret.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Image_hernia" fitHeight="285.0" fitWidth="420.0" layoutX="81.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/info_hernia.png" />
                </image>
             </ImageView>
          </children>

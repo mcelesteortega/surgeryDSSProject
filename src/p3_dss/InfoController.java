@@ -70,41 +70,41 @@ private ImageView Image_achalasia;
           if(p.getCorrected_surgery().equals("Pancreatitis")){
             Image_pancreatitis.setVisible(true);
             Image_splenectomy.setVisible(false);
-            //Image_hernia.setVisible(false);
-            //Image_barret.setVisible(false);
-            //Image_achalasia.setVisible(false);
+            Image_hernia.setVisible(false);
+            Image_barret.setVisible(false);
+            Image_achalasia.setVisible(false);
           }
           
           if(p.getCorrected_surgery().equals("Splenectomy")){
             Image_pancreatitis.setVisible(false);
             Image_splenectomy.setVisible(true);
-           // Image_hernia.setVisible(false);
-            //Image_barret.setVisible(false);
-            //Image_achalasia.setVisible(false);
+            Image_hernia.setVisible(false);
+            Image_barret.setVisible(false);
+            Image_achalasia.setVisible(false);
      }
         
         if(p.getCorrected_surgery().equals("Hernia")){
             Image_pancreatitis.setVisible(false);
             Image_splenectomy.setVisible(false);
-           // Image_hernia.setVisible(true);
-           // Image_barret.setVisible(false);
-            //Image_achalasia.setVisible(false);
+            Image_hernia.setVisible(true);
+            Image_barret.setVisible(false);
+            Image_achalasia.setVisible(false);
      }
         
         if(p.getCorrected_surgery().equals("Barret")){
             Image_pancreatitis.setVisible(false);
             Image_splenectomy.setVisible(false);
-           // Image_hernia.setVisible(false);
-           // Image_barret.setVisible(true);
-           // Image_achalasia.setVisible(false);
+            Image_hernia.setVisible(false);
+            Image_barret.setVisible(true);
+            Image_achalasia.setVisible(false);
      }
         
         if(p.getCorrected_surgery().equals("Achalasia")){
             Image_pancreatitis.setVisible(false);
             Image_splenectomy.setVisible(false);
-            //Image_hernia.setVisible(false);
-            //Image_barret.setVisible(false);
-           // Image_achalasia.setVisible(true);
+            Image_hernia.setVisible(false);
+            Image_barret.setVisible(false);
+            Image_achalasia.setVisible(true);
      }
           
           

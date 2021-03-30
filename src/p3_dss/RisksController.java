@@ -80,7 +80,7 @@ private Patient p;
             Image_splenectomy.setVisible(false);
             Image_hernia.setVisible(false);
             Image_barret.setVisible(false);
-            //Image_achalasia.setVisible(false);
+            Image_achalasia.setVisible(false);
      }
         
         if(p.getCorrected_surgery().equals("Splenectomy")){
@@ -88,7 +88,7 @@ private Patient p;
             Image_splenectomy.setVisible(true);
             Image_hernia.setVisible(false);
             Image_barret.setVisible(false);
-            //Image_achalasia.setVisible(false);
+            Image_achalasia.setVisible(false);
      }
         
         if(p.getCorrected_surgery().equals("Hernia")){
@@ -96,7 +96,7 @@ private Patient p;
             Image_splenectomy.setVisible(false);
             Image_hernia.setVisible(true);
             Image_barret.setVisible(false);
-            //Image_achalasia.setVisible(false);
+            Image_achalasia.setVisible(false);
      }
         
         if(p.getCorrected_surgery().equals("Barret")){
@@ -104,7 +104,7 @@ private Patient p;
             Image_splenectomy.setVisible(false);
             Image_hernia.setVisible(false);
             Image_barret.setVisible(true);
-           // Image_achalasia.setVisible(false);
+            Image_achalasia.setVisible(false);
      }
         
         if(p.getCorrected_surgery().equals("Achalasia")){
@@ -112,7 +112,7 @@ private Patient p;
             Image_splenectomy.setVisible(false);
             Image_hernia.setVisible(false);
             Image_barret.setVisible(false);
-           // Image_achalasia.setVisible(true);
+            Image_achalasia.setVisible(true);
      }
          
         
