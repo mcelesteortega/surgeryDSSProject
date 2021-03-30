@@ -34,7 +34,6 @@ public class SurgeryController implements Initializable {
 
     @FXML
     private Label Label;
-
     private Environment clips;
     private Patient p;
 
@@ -46,12 +45,13 @@ public class SurgeryController implements Initializable {
 
     @FXML
     private void NextButton(ActionEvent event) throws Exception {
-        
-        if (surgeryBox.getValue().equals("")) {
-            
-        } else {
-            System.out.println(p.toString());
 
+        if (surgeryBox.getValue().equals("")) {
+
+        } else {
+            getSurgery();
+            System.out.println(p.toString());
+            
             try {
 
                 FXMLLoader loader = new FXMLLoader();
@@ -78,32 +78,30 @@ public class SurgeryController implements Initializable {
                 System.out.println("Error" + e);
             }
         }
-        /*
-        
-        switch (surgery_selected) {
-            case "Pancreatitis":
-                Label.setText("Pancreatitis selected");
-                
+    }
 
-        
+    public void getSurgery() {
+        switch (surgeryBox.getValue().toString()) {
+            case "Pancreatitis":
+                p.setProposed_operation("pancreatitis");
                 break;
-            case "Splenectomy":   
-                Label.setText("Splenectomy selected");
+            case "Splenectomy":
+                p.setProposed_operation("splenectomy");               
                 break;
             case "Hiatal hernia":
-                Label.setText("Hernia selected");
+                p.setProposed_operation("hernia");
                 break;
             case "Barret syndrome":
-                Label.setText("Barret syndrome selected");
+                p.setProposed_operation("Barret");
                 break;
             case "Achalasia":
+                p.setProposed_operation("achalasia");
                 break;
             default:
-                Label.setText("Select a surgery");
+                p.setProposed_operation("");
                 break;
         }
 
-         */
     }
 
     @Override

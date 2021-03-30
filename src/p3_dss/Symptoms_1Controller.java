@@ -96,9 +96,29 @@ public class Symptoms_1Controller implements Initializable {
 
     @FXML
     private void EndButton(ActionEvent event) throws Exception {
-
         GetSymptoms();
         System.out.println(p.toString());
+        clips.assertString("(patient (name " + p.getName_id() + ") (abd-pain " + p.getAbd_pain() + ") "
+                + "(crash " + p.getCrash() + ") (nausea " + p.getNauseas() + ") (fever " + p.getFever() + ") "
+                + "(quistes-pancreas " + p.getCysts_pancreas() + ") (cysts-biliares " + p.getCysts_biliares() + ") "
+                + "(satiety " + p.getSatiety() + ") (anemia " + p.getAnemia() + ")"
+                + "(cysts-spleen " + p.getCysts_spleen() + ")(liver-disease " + p.getLiver_disease() + ") "
+                + "(reflux " + p.getReflux() + ") (difficulty-swallow " + p.getDifficulty_swallow() + ") "
+                + "(acidity " + p.getAcidity() + ") (loss-weight " +p.getLoss_weigh() +") (cough "+ p.getCough()+") "
+                + "(loss-voice "+p.getLoss_voice()+") (respiratory-problems "+p.getRespiratory_problems()+") "
+                + "(vomit "+p.getVomit()+") (dark-stools "+p.getDark_stools()+") (torax-pain "+p.getTorax_pain()+")"
+                + "(proposed-operation "+p.getProposed_operation()+"))");
+        
+        System.out.println("(patient (name " + p.getName_id() + ") (abd-pain " + p.getAbd_pain() + ") "
+                + "(crash " + p.getCrash() + ") (nausea " + p.getNauseas() + ") (fever " + p.getFever() + ") "
+                + "(quistes-pancreas " + p.getCysts_pancreas() + ") (cysts-biliares " + p.getCysts_biliares() + ") "
+                + "(satiety " + p.getSatiety() + ") (anemia " + p.getAnemia() + ")"
+                + "(cysts-spleen " + p.getCysts_spleen() + ")(liver-disease " + p.getLiver_disease() + ") "
+                + "(reflux " + p.getReflux() + ") (difficulty-swallow " + p.getDifficulty_swallow() + ") "
+                + "(acidity " + p.getAcidity() + ") (loss-weight " +p.getLoss_weigh() +") (cough "+ p.getCough()+") "
+                + "(loss-voice "+p.getLoss_voice()+") (respiratory-problems "+p.getRespiratory_problems()+") "
+                + "(vomit "+p.getVomit()+") (dark-stools "+p.getDark_stools()+") (torax-pain "+p.getTorax_pain()+")"
+                + "(proposed-operation "+p.getProposed_operation()+"))");
         try {
 
             FXMLLoader loader = new FXMLLoader();
@@ -107,7 +127,7 @@ public class Symptoms_1Controller implements Initializable {
 
             Parent SymptomsController = loader.load();
             Scene Symptoms_1 = new Scene(SymptomsController);
-
+            
             SurgeryDiagnosisController controller = loader.getController();
             controller.initData(p, clips);
 

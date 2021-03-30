@@ -4,12 +4,103 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="p3_dss.SurgeryDiagnosisController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p3_dss.SurgeryDiagnosisController">
    <children>
+      <Pane layoutY="94.0" prefHeight="306.0" prefWidth="600.0" style="-fx-background-color: c9e9fc;">
+         <children>
+            <Label layoutX="39.0" layoutY="29.0" text="The proposed  surgery was for:  ">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="proposed" layoutX="299.0" layoutY="29.0" prefHeight="22.0" prefWidth="242.0" textFill="#ababab">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="recommendation" contentDisplay="RIGHT" layoutX="44.0" layoutY="68.0" prefHeight="24.0" prefWidth="477.0" textAlignment="RIGHT" textFill="#ababab">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="gridPane" layoutX="97.0" layoutY="108.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="203.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="145.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Pancreatitis" textFill="#868686">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="Splenectomy" textFill="#868686" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="Hiatal Hernia" textFill="#868686" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="Barrett Syndrome" textFill="#868686" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="Achalasia" textFill="#868686" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pancreatitis_label" text="Label" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="splenectomy_label" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="hernia_label" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="barrett_label" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="achalasia_label" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <Label fx:id="message" contentDisplay="RIGHT" layoutX="492.0" layoutY="68.0" prefHeight="24.0" prefWidth="78.0" textAlignment="RIGHT" textFill="#ababab">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Pane prefHeight="95.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="88.0" fitWidth="93.0" layoutX="499.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
@@ -20,15 +111,6 @@
             <Label layoutX="97.0" layoutY="39.0" text="THE BEST FINAL SURGERY">
                <font>
                   <Font name="System Bold" size="27.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane layoutY="94.0" opacity="0.41" prefHeight="306.0" prefWidth="600.0" style="-fx-background-color: b0e0e6 b0e0e6 b0e0e6 b0e0e6;">
-         <children>
-            <Label fx:id="Label" layoutX="60.0" layoutY="38.0" prefHeight="206.0" prefWidth="396.0">
-               <font>
-                  <Font size="19.0" />
                </font>
             </Label>
          </children>

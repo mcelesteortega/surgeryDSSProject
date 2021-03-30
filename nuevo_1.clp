@@ -43,6 +43,11 @@
 	(slot total_per_hernia (default 0))
 	(slot total_per_achalasia (default 0))
 	
+	(slot max_per_pancreatitis (default 200))
+	(slot max_per_splenectomy (default 155))
+	(slot max_per_Barret (default 175))
+	(slot max_per_hernia (default 175))
+	(slot max_per_achalasia (default 140))
 	
 	;;;; COMPROBACIONES DE LAS DEFRULES
 	(slot computed1 (default FALSE))
@@ -97,9 +102,9 @@
 )
 
 
-(deffacts initial
-(patient)
-)
+;;(deffacts initial
+;;(patient)
+;;)
 
 
 ;; ESTO SE QUEDA IGUAL
@@ -119,7 +124,7 @@
 	?p <- (patient (name ?name)(proposed-operation nil))
 	
 	=>
-	(printout t "Enter the posible operation: pancreatitis / splenectomy / achalasia / hernia / Barrett : " crlf)
+	(printout t "Enter the posible operation: pancreatitis / splenectomy / achalasia / hernia / Barret : " crlf)
 	(modify ?p (proposed-operation (read)))
 	(assert (input-patient (name ?name) (continue YES)))
 )
@@ -837,147 +842,147 @@
 
 (defrule Imprimir_SI_per_pancreatitis
 	(declare (salience -300))
-	?p <- (patient (name ?name) (total_per_pancreatitis ?total) (proposed-operation pancreatitis) (decision-taken FALSE))
-	(test (>= ?total 80))
+	?p <- (patient (name ?name) (total_per_pancreatitis ?total) (max_per_pancreatitis ?max) (proposed-operation pancreatitis) (decision-taken FALSE))
+	(test (>= (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation pancreatitis))
 	(printout t "The original decision for: " ?name " was:  pancreatitis" crlf)
-	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " (/ ?total ?max) crlf)
 )
 
 (defrule Imprimir_NO_per_pancreatitis
 	(declare (salience -300))
-	?p <- (patient (name ?name) (total_per_pancreatitis ?total) (total_per_splenectomy ?t1) (total_per_Barret ?t2)
-	(total_per_achalasia ?t3) (total_per_hernia ?t4)
+	?p <- (patient (name ?name) (total_per_pancreatitis ?total)(total_per_splenectomy ?t1) (total_per_Barret ?t2)
+	(total_per_achalasia ?t3) (total_per_hernia ?t4) (max_per_pancreatitis ?max) (max_per_splenectomy ?max1) (max_per_Barret ?max2) (max_per_achalasia ?max3) (max_per_hernia ?max4)  
 	(proposed-operation pancreatitis)(decision-taken FALSE))
-	(test (< ?total 80))
+	(test (< (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation nil))
 	(printout t "The original decision for: " ?name " was:  pancreatitis" crlf)
-	(printout t "This operation is not recommended because its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is not recommended because its compatibility percentage is of: " (/ ?total ?max) crlf)
 	(printout t "Other possible operations: " crlf)
-	(printout t "Splenectomy compatibility percentage is of: " ?t1 crlf)
-	(printout t "Barret compatibility percentage is of: " ?t2 crlf)
-	(printout t "Achalasia compatibility percentage is of: " ?t3 crlf)
-	(printout t "Hiatial Hernia compatibility percentage is of: " ?t4 crlf)
+	(printout t "Splenectomy compatibility percentage is of: " (/ ?t1 ?max1) crlf)
+	(printout t "Barret compatibility percentage is of: " (/ ?t2 ?max2) crlf)
+	(printout t "Achalasia compatibility percentage is of: " (/ ?t3 ?max3) crlf)
+	(printout t "Hiatial Hernia compatibility percentage is of: " (/ ?t4 ?max4) crlf)
 )
 
 (defrule Imprimir_SI_per_splenectomy
 	(declare (salience -300))
-	?p <- (patient (name ?name) (total_per_splenectomy ?total) (proposed-operation splenectomy) (decision-taken FALSE))
-	(test (>= ?total 80))
+	?p <- (patient (name ?name) (total_per_splenectomy ?total) (max_per_splenectomy ?max)(proposed-operation splenectomy) (decision-taken FALSE))
+	(test (>= (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation splenectomy))
 	(printout t "The original decision for: " ?name " was: splenectomy" crlf)
-	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " (/ ?total ?max) crlf)
 )
 
 (defrule Imprimir_NO_per_splenectomy
 	(declare (salience -300))
 	?p <- (patient (name ?name) (total_per_splenectomy ?total) (total_per_pancreatitis ?t1) (total_per_Barret ?t2)
-	(total_per_achalasia ?t3) (total_per_hernia ?t4)
+	(total_per_achalasia ?t3) (total_per_hernia ?t4)(max_per_splenectomy ?max)(max_per_pancreatitis ?max1) (max_per_Barret ?max2) (max_per_achalasia ?max3) (max_per_hernia ?max4)
 	(proposed-operation splenectomy)(decision-taken FALSE))
-	(test (< ?total 80))
+	(test (< (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation nil))
 	(printout t "The original decision for: " ?name " was:  splenectomy" crlf)
-	(printout t "This operation is not recommended because its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is not recommended because its compatibility percentage is of: " (/ ?total ?max) crlf)
 	(printout t "Other possible operations: " crlf)
-	(printout t "Pancreatitis compatibility percentage is of: " ?t1 crlf)
-	(printout t "Barret compatibility percentage is of: " ?t2 crlf)
-	(printout t "Achalasia compatibility percentage is of: " ?t3 crlf)
-	(printout t "Hiatial Hernia compatibility percentage is of: " ?t4 crlf)
+	(printout t "Pancreatitis compatibility percentage is of: " (/ ?t1 ?max1) crlf)
+	(printout t "Barret compatibility percentage is of: " (/ ?t2 ?max2) crlf)
+	(printout t "Achalasia compatibility percentage is of: " (/ ?t3 ?max3) crlf)
+	(printout t "Hiatial Hernia compatibility percentage is of: " (/ ?t4 ?max4) crlf)
 )
 
 (defrule Imprimir_SI_per_Barret
 	(declare (salience -300))
-	?p <- (patient (name ?name) (total_per_Barret ?total) (proposed-operation Barret) (decision-taken FALSE))
-	(test (>= ?total 80))
+	?p <- (patient (name ?name) (total_per_Barret ?total) (max_per_Barret ?max)(proposed-operation Barret) (decision-taken FALSE))
+	(test (>= (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation Barret))
 	(printout t "The original decision for: " ?name " was: Barret" crlf)
-	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " (/ ?total ?max) crlf)
 )
 
 (defrule Imprimir_NO_per_Barret
 	(declare (salience -300))
 	?p <- (patient (name ?name) (total_per_Barret ?total) (total_per_pancreatitis ?t1) (total_per_splenectomy ?t2)
-	(total_per_achalasia ?t3) (total_per_hernia ?t4)
+	(total_per_achalasia ?t3) (total_per_hernia ?t4) (max_per_Barret ?max)(max_per_pancreatitis ?max1) (max_per_splenectomy ?max2) (max_per_achalasia ?max3) (max_per_hernia ?max4)
 	(proposed-operation Barret)(decision-taken FALSE))
-	(test (< ?total 80))
+	(test (< (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation nil))
 	(printout t "The original decision for: " ?name " was:  Barret" crlf)
-	(printout t "This operation is not recommended because its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is not recommended because its compatibility percentage is of: " (/ ?total ?max) crlf)
 	(printout t "Other possible operations: " crlf)
-	(printout t "Pancreatitis compatibility percentage is of: " ?t1 crlf)
-	(printout t "Splenectomy compatibility percentage is of: " ?t2 crlf)
-	(printout t "Achalasia compatibility percentage is of: " ?t3 crlf)
-	(printout t "Hiatial Hernia compatibility percentage is of: " ?t4 crlf)
+	(printout t "Pancreatitis compatibility percentage is of: " (/ ?t1 ?max1) crlf)
+	(printout t "Splenectomy compatibility percentage is of: " (/ ?t2 ?max2) crlf)
+	(printout t "Achalasia compatibility percentage is of: " (/ ?t3 ?max3) crlf)
+	(printout t "Hiatial Hernia compatibility percentage is of: " (/ ?t4 ?max4) crlf)
 )
 
 (defrule Imprimir_SI_per_achalasia
 	(declare (salience -300))
-	?p <- (patient (name ?name) (total_per_achalasia ?total) (proposed-operation achalasia) (decision-taken FALSE))
-	(test (>= ?total 80))
+	?p <- (patient (name ?name) (total_per_achalasia ?total) (max_per_achalasia ?max)(proposed-operation achalasia) (decision-taken FALSE))
+	(test (>= (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation achalasia))
 	(printout t "The original decision for: " ?name " was: achalasia" crlf)
-	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " (/ ?total ?max) crlf)
 )
 
 (defrule Imprimir_NO_per_achalasia
 	(declare (salience -300))
 	?p <- (patient (name ?name) (total_per_achalasia ?total) (total_per_pancreatitis ?t1) (total_per_splenectomy ?t2)
-	(total_per_Barret ?t3) (total_per_hernia ?t4)
+	(total_per_Barret ?t3) (total_per_hernia ?t4)(max_per_achalasia ?max)(max_per_pancreatitis ?max1) (max_per_splenectomy ?max2) (max_per_Barret ?max3) (max_per_hernia ?max4)
 	(proposed-operation achalasia)(decision-taken FALSE))
-	(test (< ?total 80))
+	(test (< (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation nil))
 	(printout t "The original decision for: " ?name " was:  achalasia" crlf)
-	(printout t "This operation is not recommended because its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is not recommended because its compatibility percentage is of: " (/ ?total ?max) crlf)
 	(printout t "Other possible operations: " crlf)
-	(printout t "Pancreatitis compatibility percentage is of: " ?t1 crlf)
-	(printout t "Splenectomy compatibility percentage is of: " ?t2 crlf)
-	(printout t "Barret compatibility percentage is of: " ?t3 crlf)
-	(printout t "Hiatial Hernia compatibility percentage is of: " ?t4 crlf)
+	(printout t "Pancreatitis compatibility percentage is of: " (/ ?t1 ?max1) crlf)
+	(printout t "Splenectomy compatibility percentage is of: " (/ ?t2 ?max2) crlf)
+	(printout t "Barret compatibility percentage is of: " (/ ?t3 ?max3) crlf)
+	(printout t "Hiatial Hernia compatibility percentage is of: " (/ ?t4 ?max4) crlf)
 )
 
 (defrule Imprimir_SI_per_hernia
 	(declare (salience -300))
-	?p <- (patient (name ?name) (total_per_hernia ?total) (proposed-operation hernia) (decision-taken FALSE))
-	(test (>= ?total 80))
+	?p <- (patient (name ?name) (total_per_hernia ?total)(max_per_hernia ?max) (proposed-operation hernia) (decision-taken FALSE))
+	(test (>= (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation hernia))
 	(printout t "The original decision for: " ?name " was: Hiatal Hernia" crlf)
-	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is certainly the best option. Its compatibility percentage is of: " (/ ?total ?max) crlf)
 )
 
 (defrule Imprimir_NO_per_hernia
 	(declare (salience -300))
 	?p <- (patient (name ?name) (total_per_hernia ?total) (total_per_pancreatitis ?t1) (total_per_splenectomy ?t2)
-	(total_per_Barret ?t3) (total_per_achalasia ?t4)
+	(total_per_Barret ?t3) (total_per_achalasia ?t4)(max_per_hernia ?max)(max_per_pancreatitis ?max1) (max_per_splenectomy ?max2) (max_per_Barret ?max3) (max_per_achalasia ?max4)
 	(proposed-operation hernia)(decision-taken FALSE))
-	(test (< ?total 80))
+	(test (< (/ ?total ?max) 0.7))
 	=>
 	(modify ?p  (decision-taken TRUE)(correct-operation nil))
 	(printout t "The original decision for: " ?name " was:  Hiatal Hernia" crlf)
-	(printout t "This operation is not recommended because its compatibility percentage is of: " ?total crlf)
+	(printout t "This operation is not recommended because its compatibility percentage is of: " (/ ?total ?max) crlf)
 	(printout t "Other possible operations: " crlf)
-	(printout t "Pancreatitis compatibility percentage is of: " ?t1 crlf)
-	(printout t "Splenectomy compatibility percentage is of: " ?t2 crlf)
-	(printout t "Barret compatibility percentage is of: " ?t3 crlf)
-	(printout t "Achalasia compatibility percentage is of: " ?t4 crlf)
+	(printout t "Pancreatitis compatibility percentage is of: " (/ ?t1 ?max1) crlf)
+	(printout t "Splenectomy compatibility percentage is of: " (/ ?t2 ?max2) crlf)
+	(printout t "Barret compatibility percentage is of: " (/ ?t3 ?max3) crlf)
+	(printout t "Achalasia compatibility percentage is of: " (/ ?t4 ?max4) crlf)
 )
 
 
 ;; ACCEPT MORE PATIENTS OR STOP THE PROGRAM
 
-(defrule MorePatients
-	?p <- (patient (decision-taken TRUE) (more-patients nil))
-	=>
-	(printout t "New patient? (YES/NO): " crlf)
-	(modify ?p (more-patients (read))))
+;;(defrule MorePatients
+;;	?p <- (patient (decision-taken TRUE) (more-patients nil))
+;;	=>
+;;	(printout t "New patient? (YES/NO): " crlf)
+;;	(modify ?p (more-patients (read))))
 	;; must be YES to continue, asks the user if he wants to continue entering patients
 	;; if no, the rule below wont be fired and the execution will stop
 

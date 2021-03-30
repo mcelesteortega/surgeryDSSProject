@@ -35,6 +35,7 @@ public class Patient {
     private String vomit;
     private String dark_stools;
     private String torax_pain;
+    private String proposed_operation;
 
     public Patient(String name_id){
     
@@ -60,6 +61,14 @@ public class Patient {
         this.dark_stools = "NO";
         this.torax_pain = "NO";  
  
+    }
+
+    public String getProposed_operation() {
+        return proposed_operation;
+    }
+
+    public void setProposed_operation(String proposed_operation) {
+        this.proposed_operation = proposed_operation;
     }
     
 
@@ -233,8 +242,9 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" + "name_id=" + name_id + ", abd_pain=" + abd_pain + ", crash=" + crash + ", nauseas=" + nauseas + ", fever=" + fever + ", cysts_pancreas=" + cysts_pancreas + ", cysts_biliares=" + cysts_biliares + ", satiety=" + satiety + ", anemia=" + anemia + ", cysts_spleen=" + cysts_spleen + ", liver_disease=" + liver_disease + ", reflux=" + reflux + ", difficulty_swallow=" + difficulty_swallow + ", acidity=" + acidity + ", loss_weigh=" + loss_weigh + ", cough=" + cough + ", loss_voice=" + loss_voice + ", respiratory_problems=" + respiratory_problems + ", vomit=" + vomit + ", dark_stools=" + dark_stools + ", torax_pain=" + torax_pain + '}';
+        return "Patient{" + "name_id=" + name_id + ", abd_pain=" + abd_pain + ", crash=" + crash + ", nauseas=" + nauseas + ", fever=" + fever + ", cysts_pancreas=" + cysts_pancreas + ", cysts_biliares=" + cysts_biliares + ", satiety=" + satiety + ", anemia=" + anemia + ", cysts_spleen=" + cysts_spleen + ", liver_disease=" + liver_disease + ", reflux=" + reflux + ", difficulty_swallow=" + difficulty_swallow + ", acidity=" + acidity + ", loss_weigh=" + loss_weigh + ", cough=" + cough + ", loss_voice=" + loss_voice + ", respiratory_problems=" + respiratory_problems + ", vomit=" + vomit + ", dark_stools=" + dark_stools + ", torax_pain=" + torax_pain + ", proposed_operation=" + proposed_operation + '}';
     }
+
     
     
 }
